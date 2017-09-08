@@ -7,16 +7,18 @@ Gem::Specification.new do |spec|
   spec.name          = "ad_stat"
   spec.version       = AdStat::VERSION
   spec.authors       = ["iOSdeveloperFu"]
-  spec.email         = ["TODO: Write your email address"]
+  spec.email         = ["wangcf@heng-zhun.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{collect AD's pv and uv status to redis.}
+  spec.description   = %q{collect AD's pv and uv status to redis.}
+  spec.homepage      = "http://blank/."
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
+  # Special flag to let us know this is actually a logstash plugin
+	spec.metadata = { "logstash_plugin" => "true", "logstash_group" => "output" }
     spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
@@ -30,6 +32,11 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  # Gem dependency
+  spec.add_runtime_dependency "logstash-core-plugin-api", ">= 1.60", "<= 2.99"
+  
+  spec.add_development_dependency 'logstash-devutils'
+  spec.add_development_dependency "rspec", "~> 3.2"
   spec.add_development_dependency "bundler", "~> 1.15"
   spec.add_development_dependency "rake", "~> 10.0"
 end
