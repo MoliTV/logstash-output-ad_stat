@@ -3,7 +3,8 @@ require "logstash/devutils/rspec/spec_helper"
 require "logstash/outputs/ad_stat"
 
 describe LogStash::Outputs::AdStat do
-  let(:sample_event) { LogStash::Event.new }
+  let(:sample_event) { LogStash::Event.new(:test => 'test',
+                                           :msg => 'message')}
   let(:output) { LogStash::Outputs::AdStat.new }
 
   before do
