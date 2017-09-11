@@ -1,7 +1,7 @@
 # coding: utf-8
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "ad_stat/version"
+require "logstash/outputs/ad_stat/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "ad_stat"
@@ -34,6 +34,7 @@ Gem::Specification.new do |spec|
 
   # Gem dependency
   spec.add_runtime_dependency "logstash-core-plugin-api", ">= 1.60", "<= 2.99"
+  spec.add_runtime_dependency "logstash-codec-plain"
   
   spec.add_development_dependency 'logstash-devutils'
   spec.add_development_dependency "rspec", "~> 3.2"

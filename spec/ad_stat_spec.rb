@@ -1,8 +1,6 @@
 # encoding: utf-8
-require "logstash/event"
-require "logstash/outputs/ad_stat"
 require "logstash/devutils/rspec/spec_helper"
-
+require "logstash/outputs/ad_stat"
 
 describe LogStash::Outputs::AdStat do
   let(:sample_event) { LogStash::Event.new }
